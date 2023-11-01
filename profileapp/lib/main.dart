@@ -6,7 +6,7 @@ void main() {
     title: "Profile App",
     home: Scaffold(appBar: AppBar(
       centerTitle: true,
-      title: Text("Profile App")
+      title: const Text("Profile App")
       ,),
       body: Column(children: [
        // SizedBox(height: 10),
