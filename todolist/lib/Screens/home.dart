@@ -28,7 +28,7 @@ class Home extends StatelessWidget {
               ],
             )),
         body: Container(
-          child: Text('Home Screen'),
+          child: Text('Home Screen', style: TextStyle(fontWeight: FontWeight.bold)),
         )));
   }
 }
