@@ -19,7 +19,12 @@ class Home extends StatelessWidget {
                 Icon(
                   Icons.menu,
                   color: tdBlack,
-                   size: 30)
+                   size: 30),
+                   Container( 
+                    height: 40,
+                    width: 40,
+                    child: ClipRRect(child: Image.asset('assets/images/mypic.jpg'),)
+                   )
               ],
             )),
         body: Container(
