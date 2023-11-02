@@ -28,7 +28,7 @@ class Home extends StatelessWidget {
               ],
             )),
         body: Container(
-          child: Text('This is home screen'),
+          child: Text('Home Screen'),
         )));
   }
 }
