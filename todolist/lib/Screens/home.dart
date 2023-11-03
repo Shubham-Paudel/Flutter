@@ -9,26 +9,25 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-     home: Scaffold(
-        
-        appBar: AppBar(
-            backgroundColor: tdBGColor,
-            title: Row(
-              children: [
-                Icon(
-                  Icons.menu,
-                  color: tdBlack,
-                   size: 30),
-                   Container( 
-                    height: 40,
-                    width: 40,
-                    child: ClipRRect(child: Image.asset('assets/images/mypic.jpg'),)
-                   )
-              ],
-            )),
-        body: Container(
-          child: Text('Home Screen', style: TextStyle(fontWeight: FontWeight.bold)),
-        )));
+        home: Scaffold(
+            appBar: AppBar(
+                backgroundColor: tdBGColor,
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Icon(Icons.menu, color: tdBlack, size: 30),
+                    Container(
+                        height: 40,
+                        width: 40,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image.asset('assets/images/mypic.jpg'),
+                        ))
+                  ],
+                )),
+            body: Container(
+              child: Text('Home Screen',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
+            )));
   }
 }
