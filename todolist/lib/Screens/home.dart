@@ -14,7 +14,14 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final todosList = ToDo.todoList();
+  List<ToDo> _foundToDo = [];
   final _todoController = TextEditingController();
+
+  @override
+  void initState() {
+    _foundToDo = todosList;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +48,7 @@ class _HomeState extends State<Home> {
                                 fontSize: 30, fontWeight: FontWeight.w500),
                           ),
                         ),
-                        for (ToDo todoo in todosList)
+                        for (ToDo todoo in _foundToDo.reversed)
                           ToDoItem(
                             todo: todoo,
                             onToDoChanged: _handleToDoChange,
@@ -63,38 +70,40 @@ class _HomeState extends State<Home> {
                       right: 20,
                       left: 20,
                     ),
-                    padding: EdgeInsets.symmetric(horizontal: 20,vertical: 5),
-                    decoration: BoxDecoration(color: Colors.white, boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey,
-                        offset: Offset(0.0, 0.0),
-                        blurRadius: 10.0,
-                        spreadRadius: 0.0,
-                      ),
-                    ],
-                    borderRadius: BorderRadius.circular(10),
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          offset: Offset(0.0, 0.0),
+                          blurRadius: 10.0,
+                          spreadRadius: 0.0,
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                    child: TextField( 
+                    child: TextField(
                       controller: _todoController,
-                      decoration: InputDecoration(  
+                      decoration: InputDecoration(
                         hintText: 'New item',
                         border: InputBorder.none,
                       ),
                     ),
                   ),
                 ),
-                Container(  
-                  margin: EdgeInsets.only(bottom: 20,right: 20),
-                  child: ElevatedButton(  
-                    onPressed: (){
+                Container(
+                  margin: EdgeInsets.only(bottom: 20, right: 20),
+                  child: ElevatedButton(
+                    onPressed: () {
                       _addToDoItem(_todoController.text);
                     },
-                    style: ElevatedButton.styleFrom(  
+                    style: ElevatedButton.styleFrom(
                       primary: tdBlue,
-                      minimumSize: Size(55,55),
+                      minimumSize: Size(55, 55),
                       elevation: 10,
                     ),
-                    child: Text('+',style: TextStyle(fontSize: 40)),
+                    child: Text('+', style: TextStyle(fontSize: 40)),
                   ),
                 ),
               ]),
@@ -104,59 +113,72 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-void _handleToDoChange(ToDo todo)
-{
-  setState((){
-  todo.isDone = !todo.isDone;
-  });
-}
 
-void _deteteToDoItem(String id)
-{
-  setState(() {
+  void _handleToDoChange(ToDo todo) {
+    setState(() {
+      todo.isDone = !todo.isDone;
+    });
+  }
+
+  void _deteteToDoItem(String id) {
+    setState(() {
       todosList.removeWhere((item) => item.id == id);
-  });
-}
+    });
+  }
 
-void _addToDoItem(String toDo)
-{
-  setState(() {
-    todosList.add(ToDo(id: DateTime.now().millisecondsSinceEpoch.toString(), todoText: toDo
-    ),
-    );
-  });
-  _todoController.clear();
-}
+  void _addToDoItem(String toDo) {
+    setState(() {
+      todosList.add(
+        ToDo(
+            id: DateTime.now().millisecondsSinceEpoch.toString(),
+            todoText: toDo),
+      );
+    });
+    _todoController.clear();
+  }
 
-}
+  void runFilter(String enteredKeyword) {
+    List<ToDo> results = [];
+    if (enteredKeyword.isEmpty) {
+      results = todosList;
+    } else {
+      results = todosList
+          .where((item) => item.todoText!
+              .toLowerCase()
+              .contains(enteredKeyword.toLowerCase()))
+          .toList();
+    }
+    setState(() {
+      _foundToDo = results;
+    });
+  }
 
-
-
-
-Widget searchBox() {
-  return Container(
-    padding: EdgeInsets.symmetric(horizontal: 15),
-    decoration: BoxDecoration(
-      color: Color.fromARGB(255, 255, 255, 255),
-      borderRadius: BorderRadius.circular(20),
-    ),
-    child: TextField(
-      decoration: InputDecoration(
-        contentPadding: EdgeInsets.all(0),
-        prefixIcon: Icon(
-          Icons.search,
-          color: tdBlack,
-          size: 20,
-        ),
-        prefixIconConstraints: BoxConstraints(
-          maxHeight: 20,
-          minWidth: 25,
-        ),
-        hintText: 'Search',
-        hintStyle: TextStyle(color: tdGrey),
+  Widget searchBox() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15),
+      decoration: BoxDecoration(
+        color: Color.fromARGB(255, 255, 255, 255),
+        borderRadius: BorderRadius.circular(20),
       ),
-    ),
-  );
+      child: TextField(
+        onChanged: (value) => runFilter(value),
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.all(0),
+          prefixIcon: Icon(
+            Icons.search,
+            color: tdBlack,
+            size: 20,
+          ),
+          prefixIconConstraints: BoxConstraints(
+            maxHeight: 20,
+            minWidth: 25,
+          ),
+          hintText: 'Search',
+          hintStyle: TextStyle(color: tdGrey),
+        ),
+      ),
+    );
+  }
 }
 
 AppBar _buildAppbar() {
