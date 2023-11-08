@@ -27,7 +27,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool ohTurn = true; //first O
-  List<String> displayExOh =['','','','','','','','',''];
+  List<String> displayExOh = ['', '', '', '', '', '', '', '', ''];
 
   @override
   Widget build(BuildContext context) {
@@ -39,48 +39,43 @@ class _HomePageState extends State<HomePage> {
                 SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
-                onTap: ()
-                { 
-                  _tapped(index);
-                },
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(color: Colors.grey),
-                ),
-                child: Center(
-                  child: Text(
-                    displayExOh[index],
-                    style: TextStyle(color: Colors.white, fontSize: 40),
-                  ),
-                ),
-              )
-              );
+                  onTap: () {
+                    _tapped(index);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.grey),
+                    ),
+                    child: Center(
+                      child: Text(
+                        displayExOh[index],
+                        style: TextStyle(color: Colors.white, fontSize: 40),
+                      ),
+                    ),
+                  ));
             }));
   }
-  void _tapped(int index)
-  {
+
+  void _tapped(int index) {
     setState(() {
-      if(ohTurn)
-      {
-        displayExOh[index]='O';
-      }
-      else 
-      {
-        displayExOh[index]='X';
+      if (ohTurn) {
+        displayExOh[index] = 'O';
+      } else {
+        displayExOh[index] = 'X';
       }
       ohTurn = !ohTurn;
       _checkWinner();
     });
   }
 
-  void _checkWinner()
-  {
-    
+  void _checkWinner() {
+    //checks first row
+    if (displayExOh[0] == displayExOh[1] &&
+        displayExOh[0] == displayExOh[2] &&
+        displayExOh[0] != '') {
+      _showinDialog();
+    }
   }
 
-  void _showinDialog()
-  {
-
-  }
-
+  void _showinDialog() {}
 }
