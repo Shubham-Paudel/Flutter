@@ -75,6 +75,48 @@ class _HomePageState extends State<HomePage> {
         displayExOh[0] != '') {
       _showinDialog();
     }
+    //checks second row
+    if (displayExOh[3] == displayExOh[4] &&
+        displayExOh[3] == displayExOh[5] &&
+        displayExOh[3] != '') {
+      _showinDialog();
+    }
+    //checks third row
+    if (displayExOh[6] == displayExOh[7] &&
+        displayExOh[6] == displayExOh[8] &&
+        displayExOh[6] != '') {
+      _showinDialog();
+    }
+    //checks first column
+    if (displayExOh[0] == displayExOh[3] &&
+        displayExOh[0] == displayExOh[6] &&
+        displayExOh[0] != '') {
+      _showinDialog();
+    }
+    //checks second column
+    if (displayExOh[1] == displayExOh[4] &&
+        displayExOh[1] == displayExOh[7] &&
+        displayExOh[1] != '') {
+      _showinDialog();
+    }
+    //checks third column
+    if (displayExOh[2] == displayExOh[5] &&
+        displayExOh[2] == displayExOh[8] &&
+        displayExOh[2] != '') {
+      _showinDialog();
+    }
+    //checks 1st diag
+    if (displayExOh[0] == displayExOh[4] &&
+        displayExOh[0] == displayExOh[8] &&
+        displayExOh[0] != '') {
+      _showinDialog();
+    }
+    //checks 2nd diag
+     if (displayExOh[6] == displayExOh[4] &&
+        displayExOh[6] == displayExOh[2] &&
+        displayExOh[6] != '') {
+      _showinDialog();
+    }
   }
 
   void _showinDialog() {}
