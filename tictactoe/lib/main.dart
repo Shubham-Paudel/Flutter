@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
     showDialog(context: context,
       builder: (BuildContext context) {
         return AlertDialog( 
-          title: Text('Winner is  ' + winner),
+          title: Text('Winner is : ' + winner),
         );
       });
   }
