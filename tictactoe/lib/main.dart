@@ -73,57 +73,57 @@ class _HomePageState extends State<HomePage> {
     if (displayExOh[0] == displayExOh[1] &&
         displayExOh[0] == displayExOh[2] &&
         displayExOh[0] != '') {
-      _showinDialog();
+      _showinDialog(displayExOh[0]);
     }
     //checks second row
     if (displayExOh[3] == displayExOh[4] &&
         displayExOh[3] == displayExOh[5] &&
         displayExOh[3] != '') {
-      _showinDialog();
+      _showinDialog(displayExOh[3]);
     }
     //checks third row
     if (displayExOh[6] == displayExOh[7] &&
         displayExOh[6] == displayExOh[8] &&
         displayExOh[6] != '') {
-      _showinDialog();
+      _showinDialog(displayExOh[6]);
     }
     //checks first column
     if (displayExOh[0] == displayExOh[3] &&
         displayExOh[0] == displayExOh[6] &&
         displayExOh[0] != '') {
-      _showinDialog();
+      _showinDialog(displayExOh[0]);
     }
     //checks second column
     if (displayExOh[1] == displayExOh[4] &&
         displayExOh[1] == displayExOh[7] &&
         displayExOh[1] != '') {
-      _showinDialog();
+      _showinDialog(displayExOh[1]);
     }
     //checks third column
     if (displayExOh[2] == displayExOh[5] &&
         displayExOh[2] == displayExOh[8] &&
         displayExOh[2] != '') {
-      _showinDialog();
+      _showinDialog(displayExOh[2]);
     }
     //checks 1st diag
     if (displayExOh[0] == displayExOh[4] &&
         displayExOh[0] == displayExOh[8] &&
         displayExOh[0] != '') {
-      _showinDialog();
+      _showinDialog(displayExOh[0]);
     }
     //checks 2nd diag
      if (displayExOh[6] == displayExOh[4] &&
         displayExOh[6] == displayExOh[2] &&
         displayExOh[6] != '') {
-      _showinDialog();
+      _showinDialog(displayExOh[6]);
     }
   }
 
-  void _showinDialog() {  
+  void _showinDialog(String winner) {  
     showDialog(context: context,
       builder: (BuildContext context) {
         return AlertDialog( 
-          title: Text('Winner'),
+          title: Text('Winner is  ' + winner),
         );
       });
   }
