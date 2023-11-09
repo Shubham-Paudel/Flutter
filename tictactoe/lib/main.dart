@@ -119,5 +119,12 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  void _showinDialog() {}
+  void _showinDialog() {  
+    showDialog(context: context,
+      builder: (BuildContext context) {
+        return AlertDialog( 
+          title: Text('Winner'),
+        );
+      });
+  }
 }
