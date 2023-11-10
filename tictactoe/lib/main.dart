@@ -129,10 +129,37 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
-                    ElevatedButton(
-                    style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                    onPressed: _clearBoard,   
-                    child: Text('Clear'),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                          onPressed:()
+                          {  
+                            _clearBoard();
+                          }
+                          ,   
+                          child: Text('Clear'),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(255, 0, 0, 0)),
+                          onPressed:()
+                          {  
+                            _clearBoard();
+                            draw = 0;
+                            exScore = 0;
+                            ohScore = 0;
+                          }
+                          ,   
+                          child: Text('Reset'),
+                          ),
+                        ),
+                      ],
                     ),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
@@ -140,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                         'TIC-TAC-TOE',
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 30,
+                            fontSize: 25,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -238,6 +265,7 @@ class _HomePageState extends State<HomePage> {
             title: Text('Draw'),
             actions: [
               ElevatedButton(
+                style: ElevatedButton.styleFrom(backgroundColor: Colors.yellow),
                   child: Text('Play Again!'),
                   onPressed: () {
                     _clearBoard();
@@ -258,6 +286,7 @@ class _HomePageState extends State<HomePage> {
             title: Text('Winner is : ' + winner),
             actions: [
               ElevatedButton(
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                   child: Text('Play Again!'),
                   onPressed: () {
                     _clearBoard();
