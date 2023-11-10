@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,6 +35,14 @@ class _HomePageState extends State<HomePage> {
   int exScore = 0;
   int filledBoxes = 0;
   int draw = 0;
+
+  static var myNewFont = GoogleFonts.pressStart2p(  
+    textStyle: TextStyle(color: Colors.black, letterSpacing: 3), 
+  );
+
+  static var myNewFontWhite = GoogleFonts.pressStart2p(
+    textStyle: TextStyle(color: Colors.white,letterSpacing: 3,fontSize: 15),
+  );
 
   @override
   Widget build(BuildContext context) {
