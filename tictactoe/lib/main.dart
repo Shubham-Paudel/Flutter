@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
   var myTextStyle = TextStyle(color: Colors.white, fontSize: 30);
   int ohScore = 0;
   int exScore = 0;
+  int filledBoxes = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -114,8 +115,10 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       if (ohTurn && displayExOh[index] == '') {
         displayExOh[index] = 'X';
+        filledBoxes++;
       } else if (displayExOh[index] == '') {
         displayExOh[index] = 'O';
+        filledBoxes++;
       }
       ohTurn = !ohTurn;
       _checkWinner();
@@ -171,44 +174,64 @@ class _HomePageState extends State<HomePage> {
         displayExOh[6] != '') {
       _showinDialog(displayExOh[6]);
     }
+    else if(filledBoxes == 9)
+    {
+      _showDrawDialog();
+    }
+  }
+
+  void _showDrawDialog()
+  {
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            // ignore: prefer_interpolation_to_compose_strings
+            title: Text('Draw'),
+            actions: [
+              ElevatedButton(
+                  child: Text('Play Again!'),
+                  onPressed: () {
+                    _clearBoard();
+                    Navigator.of(context).pop();
+                  }),
+            ],
+          );
+        });
   }
 
   void _showinDialog(String winner) {
     showDialog(
-      barrierDismissible: false,
+        barrierDismissible: false,
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
+            // ignore: prefer_interpolation_to_compose_strings
             title: Text('Winner is : ' + winner),
-            actions: [  
+            actions: [
               ElevatedButton(
-                child: Text('Play Again!'),
-                onPressed : ()
-                {
-                  _clearBoard();
-                  Navigator.of(context).pop();
-                }
-              ),
+                  child: Text('Play Again!'),
+                  onPressed: () {
+                    _clearBoard();
+                    Navigator.of(context).pop();
+                  }),
             ],
           );
         });
-      if(winner == 'O')
-      {
-        ohScore+=1;
-      }
-      else
-      {
-        exScore+=1;
-      }
+    if (winner == 'O') {
+      ohScore += 1;
+    } else {
+      exScore += 1;
+    }
   }
 
-  void _clearBoard()
-  {
+  void _clearBoard() {
     setState(() {
-  for(int i=0; i<9; i++)
-  {
-    displayExOh[i]='';
-  }
-});
+      for (int i = 0; i < 9; i++) {
+        displayExOh[i] = '';
+      }
+      filledBoxes = 0;
+    });
   }
 }
