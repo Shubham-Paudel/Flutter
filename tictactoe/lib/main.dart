@@ -59,9 +59,9 @@ class _HomePageState extends State<HomePage> {
   void _tapped(int index) {
     setState(() {
       if (ohTurn) {
-        displayExOh[index] = 'O';
-      } else {
         displayExOh[index] = 'X';
+      } else {
+        displayExOh[index] = 'O';
       }
       ohTurn = !ohTurn;
       _checkWinner();
