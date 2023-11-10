@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
   );
 
   static var myNewFontWhite = GoogleFonts.pressStart2p(
-    textStyle: TextStyle(color: Colors.white,letterSpacing: 3,fontSize: 15),
+    textStyle: TextStyle(color: Colors.white,fontSize: 15),
   );
 
   @override
@@ -56,49 +56,67 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(10.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            'Player X',
-                            style: myTextStyle,
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Text(
+                              'Player X',
+                              style: myNewFontWhite,
+                            ),
                           ),
-                          Text(
-                            exScore.toString(),
-                            style: myTextStyle,
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Text(
+                              exScore.toString(),
+                              style: myNewFontWhite,
+                            ),
                           ),
                         ],
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(10.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            'Draw',
-                            style: myTextStyle,
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Text(
+                              'Draw',
+                              style: myNewFontWhite,
+                            ),
                           ),
-                          Text(
-                            draw.toString(),
-                            style: myTextStyle,
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Text(
+                              draw.toString(),
+                              style: myNewFontWhite,
+                            ),
                           ),
                         ],
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(10.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            'Player O',
-                            style: myTextStyle,
+                          Padding(
+                            padding: const EdgeInsets.all(5.0),
+                            child: Text(
+                              'Player O',
+                              style: myNewFontWhite,
+                            ),
                           ),
-                          Text(
-                            ohScore.toString(),
-                            style: myTextStyle,
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Text(
+                              ohScore.toString(),
+                              style: myNewFontWhite
+                            ),
                           ),
                         ],
                       ),
