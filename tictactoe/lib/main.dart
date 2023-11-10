@@ -29,38 +29,92 @@ class _HomePageState extends State<HomePage> {
   bool ohTurn = true; //first O
   List<String> displayExOh = ['', '', '', '', '', '', '', '', ''];
 
+  var myTextStyle = TextStyle(color: Colors.white, fontSize: 30);
+  int ohScore = 0;
+  int exScore = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.grey[800],
-        body: GridView.builder(
-            itemCount: 9,
-            gridDelegate:
-                SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-            itemBuilder: (BuildContext context, int index) {
-              return GestureDetector(
-                  onTap: () {
-                    _tapped(index);
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey),
-                    ),
-                    child: Center(
-                      child: Text(
-                        displayExOh[index],
-                        style: TextStyle(color: Colors.white, fontSize: 40),
+        body: Column(
+          children: [
+            Expanded(
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Player X',
+                            style: myTextStyle,
+                          ),
+                          Text(
+                            exScore.toString(),
+                            style: myTextStyle,
+                          ),
+                        ],
                       ),
                     ),
-                  ));
-            }));
+                    Padding(
+                      padding: const EdgeInsets.all(30.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Player O',
+                            style: myTextStyle,
+                          ),
+                          Text(
+                            ohScore.toString(),
+                            style: myTextStyle,
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Expanded(
+              flex: 3,
+              child: GridView.builder(
+                  itemCount: 9,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3),
+                  itemBuilder: (BuildContext context, int index) {
+                    return GestureDetector(
+                        onTap: () {
+                          _tapped(index);
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.grey),
+                          ),
+                          child: Center(
+                            child: Text(
+                              displayExOh[index],
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 40),
+                            ),
+                          ),
+                        ));
+                  }),
+            ),
+            Expanded(child: Container())
+          ],
+        ));
   }
 
   void _tapped(int index) {
     setState(() {
-      if (ohTurn) {
+      if (ohTurn && displayExOh[index] == '') {
         displayExOh[index] = 'X';
-      } else {
+      } else if (displayExOh[index] == '') {
         displayExOh[index] = 'O';
       }
       ohTurn = !ohTurn;
@@ -112,19 +166,20 @@ class _HomePageState extends State<HomePage> {
       _showinDialog(displayExOh[0]);
     }
     //checks 2nd diag
-     if (displayExOh[6] == displayExOh[4] &&
+    if (displayExOh[6] == displayExOh[4] &&
         displayExOh[6] == displayExOh[2] &&
         displayExOh[6] != '') {
       _showinDialog(displayExOh[6]);
     }
   }
 
-  void _showinDialog(String winner) {  
-    showDialog(context: context,
-      builder: (BuildContext context) {
-        return AlertDialog( 
-          title: Text('Winner is : ' + winner),
-        );
-      });
+  void _showinDialog(String winner) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Winner is : ' + winner),
+          );
+        });
   }
 }
