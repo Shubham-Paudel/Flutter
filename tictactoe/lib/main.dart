@@ -36,12 +36,12 @@ class _HomePageState extends State<HomePage> {
   int filledBoxes = 0;
   int draw = 0;
 
-  static var myNewFont = GoogleFonts.pressStart2p(  
-    textStyle: TextStyle(color: Colors.black, letterSpacing: 3), 
+  static var myNewFont = GoogleFonts.pressStart2p(
+    textStyle: TextStyle(color: Colors.black, letterSpacing: 3),
   );
 
   static var myNewFontWhite = GoogleFonts.pressStart2p(
-    textStyle: TextStyle(color: Colors.white,fontSize: 15),
+    textStyle: TextStyle(color: Colors.white, fontSize: 15),
   );
 
   @override
@@ -113,10 +113,8 @@ class _HomePageState extends State<HomePage> {
                           ),
                           Padding(
                             padding: const EdgeInsets.all(10.0),
-                            child: Text(
-                              ohScore.toString(),
-                              style: myNewFontWhite
-                            ),
+                            child:
+                                Text(ohScore.toString(), style: myNewFontWhite),
                           ),
                         ],
                       ),
@@ -162,28 +160,26 @@ class _HomePageState extends State<HomePage> {
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                          onPressed:()
-                          {  
-                            _clearBoard();
-                          }
-                          ,   
-                          child: Text('Clear'),
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.red),
+                            onPressed: () {
+                              _clearBoard();
+                            },
+                            child: Text('Clear'),
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(backgroundColor: Color.fromARGB(255, 0, 0, 0)),
-                          onPressed:()
-                          {  
-                            _clearBoard();
-                            draw = 0;
-                            exScore = 0;
-                            ohScore = 0;
-                          }
-                          ,   
-                          child: Text('Reset'),
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Color.fromARGB(255, 0, 0, 0)),
+                            onPressed: () {
+                              _clearBoard();
+                              draw = 0;
+                              exScore = 0;
+                              ohScore = 0;
+                            },
+                            child: Text('Reset'),
                           ),
                         ),
                       ],
@@ -192,10 +188,10 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.all(10.0),
                       child: Text(
                         'TIC-TAC-TOE',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold),
+                        style: GoogleFonts.pressStart2p(
+                          textStyle:
+                              TextStyle(color: Colors.white, fontSize: 20),
+                        ),
                       ),
                     ),
                     Padding(
@@ -292,7 +288,8 @@ class _HomePageState extends State<HomePage> {
             title: Text('Draw'),
             actions: [
               ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.yellow),
+                  style:
+                      ElevatedButton.styleFrom(backgroundColor: Colors.yellow),
                   child: Text('Play Again!'),
                   onPressed: () {
                     _clearBoard();
@@ -313,7 +310,8 @@ class _HomePageState extends State<HomePage> {
             title: Text('Winner is : ' + winner),
             actions: [
               ElevatedButton(
-                  style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
+                  style:
+                      ElevatedButton.styleFrom(backgroundColor: Colors.green),
                   child: Text('Play Again!'),
                   onPressed: () {
                     _clearBoard();
