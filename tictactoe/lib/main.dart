@@ -29,10 +29,11 @@ class _HomePageState extends State<HomePage> {
   bool ohTurn = true; //first O
   List<String> displayExOh = ['', '', '', '', '', '', '', '', ''];
 
-  var myTextStyle = TextStyle(color: Colors.white, fontSize: 30);
+  var myTextStyle = TextStyle(color: Colors.white, fontSize: 25);
   int ohScore = 0;
   int exScore = 0;
   int filledBoxes = 0;
+  int draw = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.all(30.0),
+                      padding: const EdgeInsets.all(15.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -62,7 +63,23 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(30.0),
+                      padding: const EdgeInsets.all(15.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Draw',
+                            style: myTextStyle,
+                          ),
+                          Text(
+                            draw.toString(),
+                            style: myTextStyle,
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(15.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -76,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -106,7 +123,39 @@ class _HomePageState extends State<HomePage> {
                         ));
                   }),
             ),
-            Expanded(child: Container())
+            Expanded(
+                child: Container(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: [
+                    ElevatedButton(
+                    style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+                    onPressed: _clearBoard,   
+                    child: Text('Clear'),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Text(
+                        'TIC-TAC-TOE',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Text(
+                        'Made By: Shubham Raj Paudel',
+                        style: TextStyle(
+                            color: const Color.fromARGB(255, 149, 145, 145),
+                            fontSize: 20,
+                            fontWeight: FontWeight.w300),
+                      ),
+                    ),
+                  ]),
+            ))
           ],
         ));
   }
@@ -173,15 +222,13 @@ class _HomePageState extends State<HomePage> {
         displayExOh[6] == displayExOh[2] &&
         displayExOh[6] != '') {
       _showinDialog(displayExOh[6]);
-    }
-    else if(filledBoxes == 9)
-    {
+    } else if (filledBoxes == 9) {
       _showDrawDialog();
+      draw++;
     }
   }
 
-  void _showDrawDialog()
-  {
+  void _showDrawDialog() {
     showDialog(
         barrierDismissible: false,
         context: context,
