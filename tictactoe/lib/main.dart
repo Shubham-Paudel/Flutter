@@ -200,13 +200,15 @@ class _HomePageState extends State<HomePage> {
       {
         exScore+=1;
       }
-      _clearBoard();
   }
 
   void _clearBoard()
   {
-
+    setState(() {
+  for(int i=0; i<9; i++)
+  {
+    displayExOh[i]='';
   }
-
-
+});
+  }
 }
