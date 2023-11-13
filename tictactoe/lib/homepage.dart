@@ -19,9 +19,10 @@ class _HomePageState extends State<HomePage> {
   int filledBoxes = 0;
   int draw = 0;
 
-  static var myNewFont = GoogleFonts.pressStart2p(
+  /*static var myNewFont = GoogleFonts.pressStart2p(
     textStyle: TextStyle(color: Colors.black, letterSpacing: 3),
   );
+  */
 
   static var myNewFontWhite = GoogleFonts.pressStart2p(
     textStyle: TextStyle(color: Colors.white, fontSize: 15),
