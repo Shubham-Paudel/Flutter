@@ -18,6 +18,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Center(
             child: Column(children: [
               //Hello Again!//
+              SizedBox(height: 25,),
               Text(
                 'Hello Again!',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -29,9 +30,47 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SizedBox(height: 20,),
               //email textfield
-              TextField(),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Container(
+                  decoration: BoxDecoration(  
+                    color: Colors.grey[200],
+                    border: Border.all(color: Colors.white),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: TextField(  
+                      decoration: InputDecoration(  
+                        border: InputBorder.none,
+                        hintText: 'Email',
+                      ),
+                    ),
+                  ),
+                ),
+              ),
               //password textfield
+                SizedBox(height: 20,),
 
+                 Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25),
+                child: Container(
+                  decoration: BoxDecoration(  
+                    color: Colors.grey[200],
+                    border: Border.all(color: Colors.white),
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: TextField(  
+                      decoration: InputDecoration(  
+                        border: InputBorder.none,
+                        hintText: 'Password',
+                      ),
+                    ),
+                  ),
+                ),
+              ),
               //sign in button
 
               //not a member register now
