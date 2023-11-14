@@ -19,7 +19,8 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.phone_android),
+                Icon(Icons.phone_android,size: 100,),
+                SizedBox(height: 75,),
               //Hello Again!//
               Text(
                 'Hello Again!',
