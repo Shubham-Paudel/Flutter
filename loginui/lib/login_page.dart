@@ -18,30 +18,36 @@ class _LoginPageState extends State<LoginPage> {
           child: Center(
             child: Column(children: [
               //Hello Again!//
-              SizedBox(height: 25,),
+              SizedBox(
+                height: 25,
+              ),
               Text(
                 'Hello Again!',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Text(
                 'Welcome Back',
                 style: TextStyle(fontSize: 20),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               //email textfield
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Container(
-                  decoration: BoxDecoration(  
+                  decoration: BoxDecoration(
                     color: Colors.grey[200],
                     border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 20.0),
-                    child: TextField(  
-                      decoration: InputDecoration(  
+                    child: TextField(
+                      decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Email',
                       ),
@@ -50,20 +56,23 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               //password textfield
-                SizedBox(height: 20,),
+              SizedBox(
+                height: 10,
+              ),
 
-                 Padding(
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: Container(
-                  decoration: BoxDecoration(  
+                  decoration: BoxDecoration(
                     color: Colors.grey[200],
                     border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(12),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(left: 20.0),
-                    child: TextField(  
-                      decoration: InputDecoration(  
+                    child: TextField(
+                      obscureText: true,
+                      decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Password',
                       ),
@@ -72,8 +81,47 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               //sign in button
-
+              SizedBox(
+                height: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 25,
+                ),
+                child: Container(
+                  padding: EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                      color: Colors.deepPurple,
+                      borderRadius: BorderRadius.circular(12)),
+                  child: Center(
+                    child: Text(
+                      'Sign in',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
               //not a member register now
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Not a member? ',style: TextStyle(
+                         fontWeight: FontWeight.bold),),
+                  Text(
+                    'Register now',
+                    style: TextStyle(
+                        color: Colors.blue, fontWeight: FontWeight.bold),
+                  )
+                ],
+              )
             ]),
           ),
         ));
