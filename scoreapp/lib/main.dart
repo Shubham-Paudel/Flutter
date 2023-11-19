@@ -74,7 +74,7 @@ class _ScoreHomeState extends State<ScoreHome> {
           Center(
               child: Text(number.toString(),
                   style: TextStyle(
-                      color: Colors.green[1000],
+                      color: Colors.green[200],
                       fontSize: 125,
                       fontWeight: FontWeight.bold))),
           SizedBox(
