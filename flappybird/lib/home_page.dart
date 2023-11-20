@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   double initialHeight = birdYaxis;
   bool gameHasStarted = false;
 
-  static List<double> barrierX = [2, 2+1.5, 2+1.5+1.5];
+  static List<double> barrierX = [2, 2+1.5];
   static double barrierWidth = 0.5;
   List<List<double>> barrierHeight = [  
     [0.6, 0.4],
