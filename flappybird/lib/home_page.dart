@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'dart:async';
 
@@ -71,9 +71,34 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
+        Container(  
+          height: 15,
+          color: Colors.green,
+        ),
         Expanded(
             child: Container(
-          color: Colors.green,
+          color: Color.fromARGB(255, 91, 54, 41),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [  
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [ 
+                Text("SCORE",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),),
+                SizedBox(height: 20,),
+                Text("0",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 50,),),
+              ],
+            ),
+            SizedBox(width: 100,),
+            Column( 
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [ 
+                Text("BEST",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 30),),
+                SizedBox(height: 20,),
+                Text("10",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 50),),
+              ],
+            )
+          ]),
         ))
       ]),
     );
