@@ -16,7 +16,7 @@ class MyBarrier extends StatelessWidget {
       isThisBottomBarrier ? 1 : -1
       ),
       child: Container( 
-        color: Colors.green,
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(15),color: Colors.green,border: Border.all(width: 10,color: const Color.fromARGB(255, 16, 109, 19))),
         width: MediaQuery.of(context).size.width * barrierWidth/2,
         height: MediaQuery.of(context).size.height * 3/4 * barrierHeight / 2,
        ),
