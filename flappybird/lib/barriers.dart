@@ -3,19 +3,23 @@
 import 'package:flutter/material.dart';
 
 class MyBarrier extends StatelessWidget {
-  final size;
-  const MyBarrier({super.key, this.size});
+  final barrierWidth;
+  final barrierHeight;
+  final barrierX;
+  final bool isThisBottomBarrier;
+  const MyBarrier({super.key, this.barrierWidth,this.barrierHeight,this.barrierX,required this.isThisBottomBarrier});
   
   @override
   Widget build(BuildContext context) {
     return Container( 
-      width: 100,
-      height: size,
-      decoration: BoxDecoration(
-        color: Colors.green,
-        border: Border.all(width: 10,color: const Color.fromARGB(255, 35, 113, 38)),
-        borderRadius: BorderRadius.circular(15),
+      alignment: Alignment((2 * barrierX + barrierWidth) / (2 - barrierWidth),
+      isThisBottomBarrier ? 1 : -1
       ),
-    );
+      child: Container( 
+        color: Colors.green,
+        width: MediaQuery.of(context).size.width * barrierWidth/2,
+        height: MediaQuery.of(context).size.height * 3/4 * barrierHeight / 2,
+       ),
+      );
   }
 }
